@@ -18,3 +18,8 @@ $color-error        : rgb(204, 0, 0);
 const Color textColor = Color.fromARGB(255, 0, 0, 0);
 const Color profileColor = Color.fromARGB(255, 213, 246, 229);
 const Color profileDarkColor = Color.fromARGB(255, 20, 133, 86);
+
+const Color defaultPrimaryColor = Color.fromARGB(255, 56, 81, 126);
+const Color lightestGray = Color.fromARGB(255, 245, 246, 246);
+const Color lightGray = Color.fromARGB(255, 197, 197, 197);
+const Color gray = Color.fromARGB(255, 112, 112, 112);
