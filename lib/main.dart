@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:play_around/providers/menu_months_provider.dart';
 import 'package:play_around/routes/routes.gr.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(AppRoot());
@@ -12,10 +14,17 @@ class AppRoot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerDelegate: _appRouter.delegate(),
-      routeInformationParser: _appRouter.defaultRouteParser(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<MenuMonthsProvider>(
+          create: (_) => MenuMonthsProvider(),
+        ),
+      ],
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routerDelegate: _appRouter.delegate(),
+        routeInformationParser: _appRouter.defaultRouteParser(),
+      ),
     );
   }
 }

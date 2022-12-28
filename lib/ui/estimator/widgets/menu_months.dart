@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:play_around/constants/colors.dart';
 import 'package:play_around/providers/menu_months_provider.dart';
+import 'package:provider/provider.dart';
 
 class MenuMonths extends StatefulWidget {
-  final List<String> months;
-  final int selectedIndex;
-  const MenuMonths(
-      {Key? key, required this.months, required this.selectedIndex})
-      : super(key: key);
+  const MenuMonths({Key? key}) : super(key: key);
 
   @override
   State<MenuMonths> createState() => _MenuMonthsState();
@@ -15,19 +12,18 @@ class MenuMonths extends StatefulWidget {
 
 class _MenuMonthsState extends State<MenuMonths> {
   List<String> items = [];
-  int selectedIndex = 0;
 
   MenuMonthsProvider menuMonthsProvider = MenuMonthsProvider();
 
   @override
   void initState() {
-    items = widget.months;
-    selectedIndex = widget.selectedIndex;
+    items = context.read<MenuMonthsProvider>().menuItems;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final selectedIndex = context.watch<MenuMonthsProvider>().selectedIndex;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: SingleChildScrollView(
@@ -39,15 +35,22 @@ class _MenuMonthsState extends State<MenuMonths> {
               const SizedBox(
                 width: 20,
               ),
-              Text(
-                month,
-                style: TextStyle(
-                  fontWeight: selectedIndex == items.indexOf(month)
-                      ? FontWeight.bold
-                      : FontWeight.normal,
-                  color: selectedIndex == items.indexOf(month)
-                      ? defaultPrimaryColor
-                      : Colors.grey,
+              GestureDetector(
+                onTap: () {
+                  context
+                      .read<MenuMonthsProvider>()
+                      .setSelectedIndex(items.indexOf(month));
+                },
+                child: Text(
+                  month,
+                  style: TextStyle(
+                    fontWeight: selectedIndex == items.indexOf(month)
+                        ? FontWeight.bold
+                        : FontWeight.normal,
+                    color: selectedIndex == items.indexOf(month)
+                        ? defaultPrimaryColor
+                        : Colors.grey,
+                  ),
                 ),
               ),
               const SizedBox(
