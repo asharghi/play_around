@@ -24,41 +24,36 @@ class _MenuMonthsState extends State<MenuMonths> {
   @override
   Widget build(BuildContext context) {
     final selectedIndex = context.watch<MenuMonthsProvider>().selectedIndex;
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      child: SingleChildScrollView(
+    return SizedBox(
+      height: 60,
+      child: ListView.builder(
+        padding: const EdgeInsets.symmetric(vertical: 20),
         scrollDirection: Axis.horizontal,
-        child: Row(
-            children: items.map((month) {
+        itemCount: items.length,
+        itemBuilder: (BuildContext context, int index) {
           return Row(
             children: [
-              const SizedBox(
-                width: 20,
-              ),
+              const SizedBox(width: 20),
               GestureDetector(
                 onTap: () {
-                  context
-                      .read<MenuMonthsProvider>()
-                      .setSelectedIndex(items.indexOf(month));
+                  context.read<MenuMonthsProvider>().setSelectedIndex(index);
                 },
                 child: Text(
-                  month,
+                  items[index],
                   style: TextStyle(
-                    fontWeight: selectedIndex == items.indexOf(month)
+                    fontWeight: selectedIndex == index
                         ? FontWeight.bold
                         : FontWeight.normal,
-                    color: selectedIndex == items.indexOf(month)
+                    color: selectedIndex == index
                         ? defaultPrimaryColor
                         : Colors.grey,
                   ),
                 ),
               ),
-              const SizedBox(
-                width: 20,
-              ),
+              const SizedBox(width: 20),
             ],
           );
-        }).toList()),
+        },
       ),
     );
   }
