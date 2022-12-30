@@ -21,6 +21,9 @@ class AppRoot extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
+        theme: ThemeData(
+          primaryColor: const Color.fromARGB(255, 252, 109, 59),
+        ),
         debugShowCheckedModeBanner: false,
         routerDelegate: _appRouter.delegate(),
         routeInformationParser: _appRouter.defaultRouteParser(),

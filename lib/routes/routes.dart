@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:play_around/ui/estimator/screens/estimator_screen.dart';
+import 'package:play_around/ui/food/screen/food_screen.dart';
 import 'package:play_around/ui/screens/home_screen.dart';
 import 'package:play_around/ui/screens/item_screen.dart';
 import 'package:play_around/ui/screens/items_screen.dart';
@@ -20,6 +21,10 @@ import 'package:play_around/ui/screens/not_found_screen.dart';
     AutoRoute(
       page: EstimatorScreen,
       path: 'estimator',
+    ),
+    AutoRoute(
+      page: FoodScreen,
+      path: 'food',
       initial: true,
     ),
     AutoRoute(page: ItemScreen, path: 'items/:lineItemId'),
