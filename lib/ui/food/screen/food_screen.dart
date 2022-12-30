@@ -42,21 +42,24 @@ class FoodScreen extends StatelessWidget {
           const SizedBox(width: 20)
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.only(top: 20, left: 20),
-        children: [
-          Container(
-            padding: const EdgeInsets.only(right: 200),
-            child: const Text(
-              "Let's find food near you",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+      body: Container(
+        color: Colors.white,
+        child: ListView(
+          padding: const EdgeInsets.only(top: 20, left: 20),
+          children: [
+            Container(
+              padding: const EdgeInsets.only(right: 200),
+              child: const Text(
+                "Let's find food near you",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          const SizedBox(height: 30),
-          const FoodSearchBar(),
-          const SizedBox(height: 30),
-          const FoodCategories()
-        ],
+            const SizedBox(height: 30),
+            const FoodSearchBar(),
+            const SizedBox(height: 30),
+            const FoodCategories()
+          ],
+        ),
       ),
     );
   }

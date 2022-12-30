@@ -9,11 +9,11 @@ class FoodSearchBar extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(right: 20),
       decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(10),
+        color: const Color.fromARGB(255, 244, 243, 241),
+        borderRadius: BorderRadius.circular(15),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
         child: Row(
           children: [
             const Icon(
