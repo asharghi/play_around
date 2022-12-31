@@ -44,43 +44,52 @@ class FoodScreen extends StatelessWidget {
       ),
       body: Container(
         color: Colors.white,
-        child: ListView(
-          padding: const EdgeInsets.only(top: 20, left: 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              padding: const EdgeInsets.only(right: 200),
-              child: const Text(
-                "Let's find food near you",
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const SizedBox(height: 30),
-            const FoodSearchBar(),
-            const SizedBox(height: 30),
-            FoodCategories(),
-            const SizedBox(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text("Popular items",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    )),
-                Padding(
-                  padding: const EdgeInsets.only(right: 20),
-                  child: Text(
-                    "View More",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Theme.of(context).primaryColor,
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.only(top: 20, left: 20),
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(right: 200),
+                    child: const Text(
+                      "Let's find food near you",
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                     ),
                   ),
-                ),
-              ],
+                  const SizedBox(height: 30),
+                  const FoodSearchBar(),
+                  const SizedBox(height: 30),
+                  FoodCategories(),
+                  const SizedBox(height: 30),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text("Popular items",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          )),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: Text(
+                          "View More",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  const FoodItems(),
+                ],
+              ),
             ),
-            const SizedBox(height: 20),
-            const FoodItems(),
+            Container(color: Colors.red, height: 140),
           ],
         ),
       ),
