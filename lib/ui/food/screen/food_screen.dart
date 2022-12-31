@@ -21,7 +21,7 @@ class FoodScreen extends StatelessWidget {
               child: const CircleAvatar(
                 radius: 20,
                 backgroundImage: NetworkImage(
-                  'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1200',
+                  'https://www.w3schools.com/w3images/avatar6.png',
                 ),
               ),
             )),
@@ -57,7 +57,30 @@ class FoodScreen extends StatelessWidget {
             const SizedBox(height: 30),
             const FoodSearchBar(),
             const SizedBox(height: 30),
-            FoodCategories()
+            FoodCategories(),
+            const SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text("Popular items",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    )),
+                Padding(
+                  padding: const EdgeInsets.only(right: 20),
+                  child: Text(
+                    "View More",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            const FoodItems(),
           ],
         ),
       ),
