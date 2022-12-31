@@ -57,7 +57,7 @@ class FoodScreen extends StatelessWidget {
             const SizedBox(height: 30),
             const FoodSearchBar(),
             const SizedBox(height: 30),
-            const FoodCategories()
+            FoodCategories()
           ],
         ),
       ),
