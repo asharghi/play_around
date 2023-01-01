@@ -1,5 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:play_around/ui/food/widgets/food_bottom_bar.dart';
 import 'package:play_around/ui/food/widgets/food_widgets.dart';
 
 class FoodScreen extends StatelessWidget {
@@ -89,7 +89,7 @@ class FoodScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Container(color: Colors.red, height: 140),
+            const FoodBottomBar()
           ],
         ),
       ),
